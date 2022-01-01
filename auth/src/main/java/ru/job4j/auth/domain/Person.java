@@ -11,6 +11,16 @@ public class Person {
     private int id;
     private String login;
     private String password;
+    @Column(name = "employee_Id")
+    private int employeeId;
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
 
     public int getId() {
         return id;

@@ -42,7 +42,7 @@ public class PersonControllerTest {
         Mockito.when(personService.findAll()).thenReturn(persons);
         MockHttpServletRequestBuilder reqBuilder = MockMvcRequestBuilders.get("/person/");
         MvcResult mvcResult = mockMvc.perform(reqBuilder).andReturn();
-        String expected = "[{\"id\":1,\"login\":\"root\",\"password\":\"root\"}]";
+        String expected = "[{\"id\":1,\"login\":\"root\",\"password\":\"root\",\"employeeId\":0}]";
         assertEquals(expected, mvcResult.getResponse().getContentAsString());
     }
 
@@ -56,7 +56,7 @@ public class PersonControllerTest {
         Mockito.when(personService.findById(1)).thenReturn(personOptional);
         MockHttpServletRequestBuilder reqBuilder = MockMvcRequestBuilders.get("/person/1");
         MvcResult mvcResult = mockMvc.perform(reqBuilder).andReturn();
-        String expected = "{\"id\":1,\"login\":\"root\",\"password\":\"root\"}";
+        String expected = "{\"id\":1,\"login\":\"root\",\"password\":\"root\",\"employeeId\":0}";
         assertEquals(expected, mvcResult.getResponse().getContentAsString());
         assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
     }
